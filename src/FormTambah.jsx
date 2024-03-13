@@ -8,14 +8,11 @@ function FormTambah({ onAdd }) {
     const [note, setNotes] = useState("")
 
     const handleSubmit = () => {
-        // const title = titleInput.current.value
-        // const content = contentInput.current.value
-        // onAdd(title, content)
-
         onAdd(title, note);
         setTitle("")
         setNotes("")
     }
+
     return (
         <div className="flex justify-center">
             <div className="text-center w-96">
@@ -40,7 +37,7 @@ function FormTambah({ onAdd }) {
                             className='p-8 rounded-xl'
                         ></textarea>
                     </form>
-                    <button type='submit' className='bg-orange-600 mt-8 py-3 px-10 text-white font-semibold rounded-xl' onClick={() => handleSubmit()} >Add Note</button>
+                    <button onClick={() => handleSubmit()} type='submit' className='bg-orange-600 mt-8 py-3 px-10 text-white font-semibold rounded-xl'  >Add Note</button>
                 </div>
             </div>
         </div>
