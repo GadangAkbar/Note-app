@@ -1,7 +1,7 @@
 import Regist from './pages/Regist'
 import Login from './pages/Login'
 import Navbar from './Navbar'
-import Note from './Note'
+// import Note from './Note'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
