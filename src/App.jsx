@@ -38,6 +38,7 @@ function App() {
                             //
                             <>
                                 <Route path={"/Note"} element={<Note />} />
+                                <Route path={"/Regist"} element={<Navigate to={"/Note"} />} />
                                 <Route path={"/Login"} element={<Navigate to={"/Note"} />} />
                             </>
                         ) : (
