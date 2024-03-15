@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { handleLogin } from "../api"
+import { handleLogin, setTokens } from "../api"
 
 // nilai default
 const initAuthState = {
@@ -29,9 +29,13 @@ const AuthProvider = ({ children }) => {
         //memanggil api dengan axios
         const apiResult = await handleLogin(email, password)
         console.log(apiResult)
-
+        console.log(apiResult.data.data.accessToken)
+        //jika berhasil maka isLoggedin -> true
+        //simpan token kedalam local storage
         console.log("tes kepanggil", isLoggedin)
         setIsLoggedin(true)
+        setTokens(apiResult.data.data.accessToken)
+        //jika gagal tampilkan peringatan
     }
 
     const doLogout = () => {

@@ -11,7 +11,7 @@ import { useAuth } from "./context/Auth"
 function App() {
     //panggil nilai isLoggedin dari context
     // const { isLoggedin } = useAuth()
-
+    const { isLoggedin } = useAuth()
     const [token, setToken] = useState(null);
 
     const handleLogin = (tokens) => {
@@ -33,9 +33,23 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route element={<Navbar token={token} onLogout={handleLogout} />}>
-                        <Route path={"/Note"} element={<Note />} />
-                        <Route path={"/Regist"} element={<Regist/>} />
-                        <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                        {isLoggedin ? (
+                            //halaman Note akan terbuka ketika isLoggedin true
+                            //
+                            <>
+                                <Route path={"/Note"} element={<Note />} />
+                                <Route path={"/Login"} element={<Navigate to={"/Note"} />} />
+                            </>
+                        ) : (
+                            <>
+                                <Route path={"*"} element={<Navigate to={"/Login"} />} />
+                                <Route path={"/Regist"} element={<Regist />} />
+                                <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                            </>
+                        )}
+
+
+
                     </Route>
                     {/* {token !== null ?
                         <Route>
@@ -52,9 +66,9 @@ function App() {
                     }
                 </Route>
                 <Route path="*" element={<Navigate to={"/Login"} />} /> */}
-            </Routes>
+                </Routes>
 
-        </BrowserRouter >
+            </BrowserRouter >
         </>
     )
 }
