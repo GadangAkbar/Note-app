@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { getToken, handleLogin, setTokens } from "../api"
+import { getToken, handleLogin, removeToken, setTokens } from "../api"
 
 // nilai default
 const initAuthState = {
@@ -47,6 +47,7 @@ const AuthProvider = ({ children }) => {
 
     const doLogout = () => {
         setIsLoggedin(false)
+        removeToken()
     }
     // return provider
     return (
