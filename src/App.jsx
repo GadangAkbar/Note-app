@@ -1,38 +1,20 @@
-import { useContext, useEffect, useState } from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
 import Note from "./Note"
 import Login from "./pages/Login"
 import Regist from "./pages/Regist"
-import { getToken } from "./api"
 import { useAuth } from "./context/Auth"
 // import { setTokens } from "./token"
 
 function App() {
     //panggil nilai isLoggedin dari context
-    // const { isLoggedin } = useAuth()
     const { isLoggedin } = useAuth()
-    const [token, setToken] = useState(null);
-
-    const handleLogin = (tokens) => {
-        setToken(tokens)
-    }
-
-    // const handleLogout = () => {
-    //     setToken(null)
-    //     localStorage.removeItem('token');
-    // }
-
-    useEffect(() => {
-        const tokens = getToken()
-        setToken(tokens);
-    }, [])
 
     return (
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route element={<Navbar token={token}/>}>
+                    <Route element={<Navbar />}>
                         {isLoggedin ? (
                             //halaman Note akan terbuka ketika isLoggedin true
                             //
@@ -45,7 +27,7 @@ function App() {
                             <>
                                 <Route path={"*"} element={<Navigate to={"/Login"} />} />
                                 <Route path={"/Regist"} element={<Regist />} />
-                                <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                                <Route path={"/Login"} element={<Login />} />
                             </>
                         )}
 

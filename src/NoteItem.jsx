@@ -1,8 +1,8 @@
 function NoteItem({ id, title, content, onDelete, onEdit }) {
 
   const handleDelete = (id) => {
-    const confirm = confirm("Apakah Anda Yakin Ingin Menghapusnya?")
-    if (confirm) {
+    const konfirm = confirm("Apakah Anda Yakin Ingin Menghapusnya?")
+    if (konfirm) {
       onDelete(id)
       alert("Berhasil menghapus")
     }
