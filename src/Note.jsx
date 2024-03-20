@@ -11,6 +11,7 @@ function Note() {
   const [notes, setNotes] = useState([])
   const [currentNoteId, setCurrentNoteId] = useState(null)
 
+  //function untuk menampilkan note dengan memanggil API
   const handleFetchData = async () => {
     const apiFetch = await tampilkan();
     setNotes(apiFetch.data.data.notes ?? null)
