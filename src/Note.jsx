@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import NoteItem from './NoteItem'
-import { nanoid } from 'nanoid'
 import FormTambah from './FormTambah'
 import FormEdit from './FormEdit'
-import axios from 'axios'
 import { addNote, deleteNote, editNote, tampilkan } from './api'
 
 
