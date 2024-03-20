@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { handleLogin, setTokens } from "../api"
+import { getToken, handleLogin, setTokens } from "../api"
 
 // nilai default
 const initAuthState = {
@@ -21,6 +21,13 @@ const useAuth = () => {
 const AuthProvider = ({ children }) => {
     // state
     const [isLoggedin, setIsLoggedin] = useState(false)
+
+    useEffect(() =>{
+        const token = getToken()
+        if(token != null){
+            setIsLoggedin(true)
+        }
+    }, [])
 
     // function
     const doLogin = async (email, password) => {

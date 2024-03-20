@@ -18,10 +18,10 @@ function App() {
         setToken(tokens)
     }
 
-    const handleLogout = () => {
-        setToken(null)
-        localStorage.removeItem('token');
-    }
+    // const handleLogout = () => {
+    //     setToken(null)
+    //     localStorage.removeItem('token');
+    // }
 
     useEffect(() => {
         const tokens = getToken()
@@ -32,7 +32,7 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route element={<Navbar token={token} onLogout={handleLogout} />}>
+                    <Route element={<Navbar token={token}/>}>
                         {isLoggedin ? (
                             //halaman Note akan terbuka ketika isLoggedin true
                             //
