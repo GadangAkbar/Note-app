@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { getToken, handleLogin, removeToken, setTokens } from "../api"
 
-// nilai default
+// nilai default state
 const initAuthState = {
     isLoggedin: false,
     doLogin: () => { },
@@ -22,9 +22,9 @@ const AuthProvider = ({ children }) => {
     // state
     const [isLoggedin, setIsLoggedin] = useState(false)
 
-    useEffect(() =>{
+    useEffect(() => {
         const token = getToken()
-        if(token != null){
+        if (token != null) {
             setIsLoggedin(true)
         }
     }, [])
@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
         console.log("tes kepanggil", isLoggedin)
         setIsLoggedin(true)
         setTokens(apiResult.data.data.accessToken)
+        console.log("berhasil login")
         //jika gagal tampilkan peringatan
     }
 

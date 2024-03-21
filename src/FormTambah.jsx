@@ -1,16 +1,19 @@
 import { useState, useRef } from "react"
+import { useNotes } from "./context/Note";
 
 function FormTambah({ onAdd }) {
-    // const titleInput = useRef()
-    // const contentInput = useRef()
-
     const [title, setTitle] = useState("")
-    const [note, setNotes] = useState("")
+    const [content, setContent] = useState("")
+
+    const { handleAddData } = useNotes()
+    const { notes } = useNotes()
 
     const handleSubmit = () => {
-        onAdd(title, note);
+        handleAddData(title, content)
+        console.log("tambah notes")
+        console.log(notes)
         setTitle("")
-        setNotes("")
+        setContent("")
     }
 
     return (
@@ -27,8 +30,8 @@ function FormTambah({ onAdd }) {
                             placeholder='add title here...'
                             className='p-8 h-16 rounded-xl' />
                         <textarea
-                            value={note}
-                            onChange={e => setNotes(e.target.value)}
+                            value={content}
+                            onChange={e => setContent(e.target.value)}
                             name="content"
                             id="content"
                             cols="30"

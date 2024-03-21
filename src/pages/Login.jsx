@@ -28,7 +28,7 @@ function Login({ onLogin }) {
     
     const handleLogin = () => {
         doLogin(email, password)
-        console.log("berhasil login")
+        console.log("login")
     }
 
     const handleLogout = () => {
