@@ -1,14 +1,15 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState ,useEffect} from "react"
 import { addNote, editNote, deleteNote, tampilkan } from "../config/api";
 
 //default state
 const initNoteContext = {
     notes: [],
     currentNoteId: null,
-    handleFetchData: () => { },
-    handleAddData: () => { },
-    handleUpdate: () => { },
-    handleDelete: () => { },
+    handleFetchData: () => {},
+    handleAddData: () => {},
+    handleUpdate: () => {},
+    handleDelete: () => {},
+    Edit: () => {},
     cancelEdit: () => { },
 }
 
@@ -37,8 +38,8 @@ const NoteProvider = ({ children }) => {
     }
 
     const handleAddData = async (title, content) => {
-        await addNote(title, content)
-        tampilkan()
+        await addNote(title, content);
+        handleFetchData();
     }
 
     const handleUpdate = async (id, title, content, writer) => {
@@ -59,7 +60,7 @@ const NoteProvider = ({ children }) => {
         setCurrentNoteId(null);
     }
 
-    return (
+    return(
         <NoteContext.Provider value={{ notes, currentNoteId, handleAddData, handleFetchData, handleDelete, handleUpdate, Edit, cancelEdit }}>
             {children}
         </NoteContext.Provider >

@@ -1,16 +1,16 @@
 import { useState} from "react"
 import { useNotes } from "./NoteContext";
 
-function FormTambah({ onAdd }) {
+function FormTambah() {
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
 
-    const { handleAddData } = useNotes()
+    const { handleAddData} = useNotes();
 
     const handleSubmit = () => {
-        handleAddData(title, content)
-        setTitle("")
-        setContent("")
+        handleAddData(title, content);
+        setTitle("");
+        setContent("");
     }
 
     return (
@@ -37,7 +37,7 @@ function FormTambah({ onAdd }) {
                             className='p-8 rounded-xl'
                         ></textarea>
                     </form>
-                    <button onClick={() => handleSubmit()} type='submit' className='bg-orange-600 mt-8 py-3 px-10 text-white font-semibold rounded-xl'  >Add Note</button>
+                    <button onClick={handleSubmit} type='submit' className='bg-orange-600 mt-8 py-3 px-10 text-white font-semibold rounded-xl'  >Add Note</button>
                 </div>
             </div>
         </div>

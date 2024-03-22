@@ -4,10 +4,11 @@ import Note from "./modules/notes/Note";
 import Login from "./modules/auth/Login";
 import Regist from "./modules/auth/Regist";
 import { useAuth } from "./modules/auth/AuthContext";
+import { NoteProvider } from "./modules/notes/NoteContext";
 
 function App() {
     //panggil nilai isLoggedin dari context
-    const { isLoggedin } = useAuth()
+    const { isLoggedin } = useAuth();
 
     return (
         <>
@@ -17,7 +18,7 @@ function App() {
                         {isLoggedin ? (
                             //halaman Note akan terbuka ketika isLoggedin true
                             <>
-                                <Route path={"/Note"} element={<Note />} />
+                                <Route path={"/Note"} element={<NoteProvider><Note/></NoteProvider>}/>
                                 <Route path={"/Regist"} element={<Navigate to={"/Note"} />} />
                                 <Route path={"/Login"} element={<Navigate to={"/Note"} />} />
                             </>
