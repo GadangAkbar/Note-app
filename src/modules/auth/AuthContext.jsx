@@ -28,20 +28,14 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    // function
     const doLogin = async (email, password) => {
         //memanggil api dengan email & password
-        console.log("login dengan memanggil", email, password)
         //memanggil api dengan axios
         const apiResult = await handleLogin(email, password)
-        console.log(apiResult)
-        console.log(apiResult.data.data.accessToken)
         //jika berhasil maka isLoggedin -> true
         //simpan token kedalam local storage
-        console.log("tes kepanggil", isLoggedin)
         setIsLoggedin(true)
         setTokens(apiResult.data.data.accessToken)
-        console.log("berhasil login")
         //jika gagal tampilkan peringatan
     }
 
