@@ -7,6 +7,8 @@ function FormEdit({ onEdit, notes, targetValue, onCancel }) {
     const [note, setNotes] = useState(targetValue !== null ? targetValue.content : null)
     const [writer, setWriter] = useState(targetValue !== null ? targetValue.writer : null);
 
+
+
     useEffect(() => {
         const noteToEdit = notes !== null ? notes.find((note) => note.id === targetValue.id) : null;
         if (noteToEdit !== null) {
