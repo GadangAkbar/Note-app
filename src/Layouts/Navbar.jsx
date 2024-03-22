@@ -1,5 +1,5 @@
-import { Link, Outlet } from "react-router-dom"
-import { useAuth } from "./context/Auth"
+import { Link, Outlet } from "react-router-dom";
+import { useAuth } from "../modules/auth/AuthContext";
 
 function Navbar() {
 

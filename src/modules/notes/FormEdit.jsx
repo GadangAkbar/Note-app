@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState} from "react"
 
 function FormEdit({ onEdit, notes, targetValue, onCancel }) {
     const [title, setTitle] = useState(targetValue !== null ? targetValue.title : null)

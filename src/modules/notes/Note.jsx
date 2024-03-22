@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import NoteItem from './NoteItem'
-import FormTambah from './FormTambah'
-import FormEdit from './FormEdit'
-import { addNote, deleteNote, editNote, tampilkan } from '../config/api'
+import { useEffect, useState } from 'react';
+import NoteItem from './NoteItem';
+import FormTambah from './FormTambah';
+import FormEdit from './FormEdit';
+import { addNote, deleteNote, editNote, tampilkan } from '../config/api';
 
 
 function Note() {
