@@ -16,7 +16,6 @@ function App() {
                     <Route element={<Navbar />}>
                         {isLoggedin ? (
                             //halaman Note akan terbuka ketika isLoggedin true
-                            //
                             <>
                                 <Route path={"/Note"} element={<Note />} />
                                 <Route path={"/Regist"} element={<Navigate to={"/Note"} />} />
