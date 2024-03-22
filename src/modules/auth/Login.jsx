@@ -34,7 +34,6 @@ function Login() {
                     </form>
                     <div className="btn mt-10 flex gap-4">
                         <button onClick={handleLogin} type="submit" className="bg-orange-500 text-white px-5 py-1 rounded">Login</button>
-                        <button onClick={handleLogout} type="submit" className="bg-orange-500 text-white px-5 py-1 rounded">Logout</button>
                     </div>
                 </div>
 
