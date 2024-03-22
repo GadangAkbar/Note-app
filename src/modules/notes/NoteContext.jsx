@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-import { addNote, editNote, deleteNote, tampilkan } from "../api"
+import { addNote, editNote, deleteNote, tampilkan } from "../config/api"
 
 //default state
 const initNoteContext = {
@@ -38,7 +38,7 @@ const NoteProvider = ({ children }) => {
 
     const handleAddData = async (title, content) => {
         await addNote(title, content)
-        handleFetchData()
+        tampilkan()
     }
 
     const handleUpdate = async (id, title, content, writer) => {

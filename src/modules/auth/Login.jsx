@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { handleLogin, setTokens } from "../api";
-import { useAuth } from "../context/Auth";
+import { handleLogin, setTokens } from "../config/api";
+import { useAuth } from "./AuthContext";
 
 function Login({ onLogin }) {
     const { doLogin } = useAuth()

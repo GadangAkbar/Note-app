@@ -1,5 +1,5 @@
 import { useState, useRef } from "react"
-import { useNotes } from "./context/Note";
+import { useNotes } from "./NoteContext";
 
 function FormTambah({ onAdd }) {
     const [title, setTitle] = useState("")
