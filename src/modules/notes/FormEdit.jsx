@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef } from "react"
 
 function FormEdit({ onEdit, notes, targetValue, onCancel }) {
-    // const titleInput = useRef()
-    // const contentInput = useRef()
     const [title, setTitle] = useState(targetValue !== null ? targetValue.title : null)
     const [note, setNotes] = useState(targetValue !== null ? targetValue.content : null)
     const [writer, setWriter] = useState(targetValue !== null ? targetValue.writer : null);
@@ -31,12 +29,6 @@ function FormEdit({ onEdit, notes, targetValue, onCancel }) {
             setNotes("")
         }
     };
-
-    // const cancelHandle = ()=>{
-    //     titleInput.current.value = "";
-    //     contentInput.current.value = "";[]
-    //     onCancel()
-    // }
 
     return (
         <div>

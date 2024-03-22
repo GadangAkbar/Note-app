@@ -6,12 +6,9 @@ function FormTambah({ onAdd }) {
     const [content, setContent] = useState("")
 
     const { handleAddData } = useNotes()
-    const { notes } = useNotes()
 
     const handleSubmit = () => {
         handleAddData(title, content)
-        console.log("tambah notes")
-        console.log(notes)
         setTitle("")
         setContent("")
     }
